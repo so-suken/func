@@ -1,0 +1,8 @@
+mvlower(){                                                                                                                                                           03/26/19(14:51)
+ if (($# == 0))
+ then echo "Usage: $0 file ..."; fi
+ for i
+ do echo "$i -> $i:l"
+ /bin/mv $i $i:l
+ done
+ }

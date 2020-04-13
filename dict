@@ -1,0 +1,5 @@
+function dict(){
+open dict:/$1
+grep $1 ~/.dictionary/gene95/gene-uft8.txt -A 1 -wi --color 
+#python ~/dict.py $1
+}

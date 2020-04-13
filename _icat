@@ -1,0 +1,17 @@
+#compdef icat
+
+_icat() {
+
+_values\
+ 'picture files'\
+ *.png\
+ *.JPG\
+ *.JPEG\
+ *.jpg\
+ *.jpeg\
+ *.tif*\
+ *.gif\
+ *.bmp\
+ *.pict\
+ *.pdf
+}

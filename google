@@ -1,0 +1,11 @@
+function google() {
+ local str opt
+ if [ $# != 0 ]; then
+ for i in $*; do
+ str="$str+$i"
+ done
+ opt='search?num=50&hl=ja&lr=lang_ja'
+ opt="${opt}&q=${str}"
+ fi
+ open -a /Applications/Google\ Chrome.app http://www.google.co.jp/$opt
+}

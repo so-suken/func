@@ -1,0 +1,8 @@
+wag(){
+a=$(( $RANDOM % 2 ))
+if [ $a -eq 0 ]; then
+echo "DRAGON"
+else
+echo "shos 5"
+fi
+}

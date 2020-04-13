@@ -1,0 +1,13 @@
+morning(){
+if [[ -n $PERIOD ]]; then
+  TIMEOUT=1
+else
+  TIMEOUT=10
+fi
+
+echo "Hello, Sohta!"
+timeout $TIMEOUT curl wttr.in/"${0:-Tokyo}"
+if [[ $? != 0 ]]; then
+  tput setaf 45 && echo "can't get information of weather (·ω·)"
+fi
+}

@@ -1,0 +1,9 @@
+chpwd(){
+ [[ -t 1 ]] || return
+ echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+case $TERM in
+ (*term*|rxvt|(dt|k|E)term) print -Pn "\e]2;%~\a"
+ ls
+ ;;
+ esac
+ }

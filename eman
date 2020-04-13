@@ -1,0 +1,5 @@
+eman(){
+#MANPATH=/usr/share/man:
+man -M /usr/share/man $*
+#MANPATH=/usr/local/share/man/ja_JP.UTF-8:/usr/share/man/ja:/usr/share/man
+}

@@ -1,0 +1,8 @@
+del () {
+echo -e "\x1b[38;5;9m--deleted files/directories--\x1b[0m"
+for i
+do echo $i 
+done
+
+ mv $* ~/.Trash/
+ }

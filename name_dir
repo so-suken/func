@@ -1,0 +1,12 @@
+function name_dir() # dir, name
+{
+  local dir=$1
+  local name=$2
+
+  if [ -d $dir ]; then
+    hash -d $name=$dir
+    return 0
+  else
+    return 1
+  fi
+}

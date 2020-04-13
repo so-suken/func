@@ -1,0 +1,6 @@
+preexec () {
+ [[ -t 1 ]] || return
+ case $TERM in
+(*xterm*|screen|rxvt|(dt|k|E)term) print -Pn "\e]2;[%~]  $1\a" ;;
+esac
+}

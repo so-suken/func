@@ -1,0 +1,11 @@
+periodic(){
+if [[ $(date +%d) != $DAY && $(date +%H) -ge 6 ]] ; then
+date
+morning
+DAY=$(date +%d)
+fi
+
+#tputは色をつけるもの
+#tput setaf 64 && fortune
+tput setaf 1 && jobs
+}

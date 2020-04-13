@@ -1,0 +1,10 @@
+precmd () {
+ print
+ local left=' %F{13}Mac%Sino%s%f %F{232}<-%f %F{10}[%(5~,%-1~/.../%2~,%~)]%f'
+ local right='%F{7}%@%f '
+ local invisible='%([BSUbfksu]|([FK]|){*})'
+ local leftwidth=${#${(S%%)left//$~invisible/}}
+ local rightwidth=${#${(S%%)right//$~invisible/}}
+ local padwidth=$(($COLUMNS - ($leftwidth + $rightwidth) % $COLUMNS))
+ print -P $left${(r:$padwidth:: :)}$right
+ }

@@ -1,0 +1,29 @@
+function mama(){
+local str
+local prog
+for i in *; do
+if [[ $i:e = c ]]; then
+str="$str ${i:r}.o"
+fi
+done
+if [ -n "${str}" ]; then
+if [ -n "$1" ]; then
+prog="$1"
+else
+prog="${PROG:-a.out}"
+fi
+echo "PROG = $prog" >! Makefile
+echo "OBJS =$str" >> Makefile
+echo "CC = gcc" >> Makefile
+echo "CFLAGS = -Wall -O0" >> Makefile
+echo "LDFLAGS = -lm" >> Makefile
+echo -e ".PHONY: all\nall: \$(PROG)\n" >> Makefile
+echo -e ".SUFFIXES: .o.c\n.c.o:\n\t\$(CC) \$(CFLAGS) -c \$<" >> Makefile
+echo -e "\$(PROG): \$(OBJS)\n\t\$(CC) -g -o \$@ \$^ \$(LDFLAGS)" >> Makefile
+echo ".PHONY: clean" >> Makefile
+echo -e "clean:\n\trm -rf \$(PROG) \$(PROG).dSYM \$(OBJS)" >> Makefile
+echo "created Makefile; executable file(PROG) -> $prog"
+else
+echo "There is no C files"
+fi
+}
